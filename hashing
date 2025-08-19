@@ -1,0 +1,21 @@
+// To implement hashing techniques
+
+using namespace std; int main() {
+int n;
+cout<<"enter total number of server:"; cin>>n; //Taking the input of number of server int arr[n];
+int req; //For Helping to exit the code cout<<"\n";
+int i=0; //initializing i for the loop int id;
+do {
+cout<<"Do You Want to request then enter 1 or 0 for exit: "; cin>>req;
+if (req==0){ break;
+}
+cout<<"Enter id:";
+cin>>id; //Taking id as input int hashvalue = id % n;
+arr [hashvalue]=id; //storing id in array arr i++;
+}
+while(i<n && req); //condition for breaking loop cout<<"\n"; if (req==1){
+for(int i=0; i<n; i++){ //printing array and server number cout<<"the id "<<arr[i]<<" is forwarded to server "<<i; cout<<"\n";
+}
+}
+cout<<"Server exit"; return 0;
+}
