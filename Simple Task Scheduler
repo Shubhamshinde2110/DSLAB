@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+class node{
+    public:
+    string task_name;
+    int priority;
+    int exec_time;
+    node* next;
+void insert(node*& head, string task_name, int priority, int exec_time){
+node* newnode = new node();
+newnode -> task_name = task_name;
+newnode -> priority = priority;
+newnode -> exec_time = exec_time;
+newnode -> next = NULL;
+if (head == NULL || head -> priority < newnode -> priority){
+newnode -> next = head;
+head = newnode;
+}
+else{
+node* temp = head;
+while (temp -> next != NULL && temp -> next -> priority >= newnode -> priority){
+temp = temp -> next;
+}
+newnode -> next = temp -> next;
+temp -> next = newnode;
+}
+}
+void display(node* head){
+node* temp = head;
+while (temp != NULL){
+cout << "Task: " << temp -> task_name << endl;
+cout << "Priority: " << temp -> priority << endl;
+cout << "Execution time: " << temp -> exec_time << endl;
+temp = temp -> next;
+}
+}
